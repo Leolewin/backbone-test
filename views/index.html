@@ -11,6 +11,59 @@
 	<div class="con">
 		backbone 测试
 	</div>
+	<div id="test" class="edit">
+		
+	</div>
 </div>
+<script type="text/javascript">
+	var Todo = Backbone.Model.extend({
+		title: 'leolewin',
+		completed: true,
+		initialize: function(){
+			console.log('this model has been initialized');
+			console.log(this.title);
+		}
+	});
+	var myTodo = new Todo();
+
+	var TodoView = Backbone.View.extend({
+		tagName: 'li',
+		todoTpl: _.template('An example template'),
+		events: {
+			'dblclick label': 'edit',
+			'keypress .edit': 'updateOnEnter',
+			'blur .edit': 'close'
+		},
+		render: function(){
+			this.$el.html(this.todoTpl(this.model.toJSON()));
+			this.input = this.$('.edit');
+			console.log(this.input);
+			return this;
+		},
+		edit: function(){
+			console.log('you are writing....');
+		},
+		close: function(){
+			console.log('close');
+		},
+		blur: function(){
+			console.log('blur');
+		},
+		updateOnEnter: function(e){
+			console.log(e);
+		}
+	});
+
+	var todoView = new TodoView();
+	console.log(todoView.el);
+
+	var ToUL = Backbone.View.extend({
+		tagName: 'ul',
+		id: 'todos'
+	});
+
+	console.log(new ToUL().el);
+
+</script>
 </body>
 </html>
