@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>muban demo</title>
+	<script type="text/javascript" src='javascripts/jquery/jquery.min.js'></script>
+	<script type="text/javascript" src='javascripts/underscore/underscore-min.js'></script>
+	<script type="text/javascript" src='javascripts/backbone/backbone-min.js'></script>
+</head>
+<body>
+<div id="todo">
+	<div id="todo-list">
+		集合 test
+	</div>
+</div>
+<!-- <script id="item-template">
+	<div>
+		<input id="todo_complete" type="checkbox" <%= complete ? 'checked="checked"' : '' %>
+
+		<%= title %>
+	</div>
+</script>
+<script type="text/javascript">
+	var ListView = Backbone.View.extend({
+		render: function(){
+			this.$el.html(this.model.toJSON());
+			return this;
+		}
+	});
+</script> -->
+<script type="text/javascript">
+	// Backbone.on('event', function(e){
+	// 	console.log(e);
+	// });
+	// var todoModel = Backbone.Model.extend({
+	// 	defaults: {
+	// 		title: 'leolewin',
+	// 		completed: false
+	// 	}
+	// })
+	// var todoCollect = Backbone.Collection.extend({
+	// 	model: todoModel,
+	// 	url:'/muban/model'
+	// });
+	// var todo = new todoCollect();
+	// todo.fetch();
+
+	// todo.create({title:'leona'});
+	// console.log(todo.toJSON());
+	// console.log(todo.length);
+	var test = {};
+	_.extend(test, Backbone.Events);
+	test.on('haha', function(e){
+		console.log(e.msg);
+	});
+	test.trigger('haha',{'msg':'evetns tests'})
+
+</script>
+</body>
+</html>
