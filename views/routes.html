@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>muban demo</title>
+	<script type="text/javascript" src='javascripts/jquery/jquery.min.js'></script>
+	<script type="text/javascript" src='javascripts/underscore/underscore-min.js'></script>
+	<script type="text/javascript" src='javascripts/backbone/backbone-min.js'></script>
+</head>
+<body>
+<div id="todo">
+	<div id="todo-list">
+		路由测试
+		<br>
+		<a href="#about">about</a><br>
+		<a href="#about/test">about#1</a><br>
+		<a href="#about/test/p2">about#1p:page</a><br>
+	</div>
+</div>
+<script type="text/javascript">
+var routes = Backbone.Router.extend({
+	routes: {
+		'about': 'showAbout',
+		'about/:query': 'searchTodos',
+		'about/:query/p:page': 'searchTodos'
+	},
+	showAbout: function(){
+		console.log('show about');
+	},
+	searchTodos: function(query, page){
+		var page_number = page || 1;
+		console.log("page number: " + page_number + " of the results for todos containing the word: " + query);
+
+	}
+});
+/**
+*注意：'about/:query/p:page': 'searchTodos'中的最后p:page表示查询参数必须是#about/xxx/p+number
+*如果是#about/xxx/x+number则识别不出来
+**/
+var router = new routes();
+Backbone.history.start();
+</script>
+</body>
+</html>

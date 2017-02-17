@@ -18,5 +18,8 @@ router.get('/muban/model', function(req, res, next) {
 router.post('/muban/model',function(req, res, next){
 	  console.log(req.body);
 })
-
+router.get('/routes', function(req, res, next) {
+  // res.render('index', { title: 'Express' });
+  res.sendfile('./views/routes.html');
+});
 module.exports = router;
